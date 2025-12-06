@@ -1,1 +1,1 @@
-Sistema de gestión de biblioteca
+Sistema de gestión de biblioteca.
