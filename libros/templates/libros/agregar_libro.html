@@ -1,0 +1,64 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Agregar Libro</title>
+    <link rel="stylesheet" href="{% static 'css/estilo.css' %}">
+</head>
+<body>
+
+<h2>Agregar Libro</h2>
+
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+
+    <p>
+        {{ form.titulo.label }}: {{ form.titulo }}
+    </p>
+
+    <p>
+        {{ form.autor.label }}: {{ form.autor }}
+        <a href="{% url 'agregar_autor' %}">➕ Nuevo autor</a>
+    </p>
+
+    <p>
+        {{ form.categoria.label }}: {{ form.categoria }}
+        <a href="{% url 'agregar_categoria' %}">➕ Nueva categoría</a>
+    </p>
+
+    <p>
+        {{ form.tipo.label }}: {{ form.tipo }}
+        <a href="{% url 'agregar_tipo' %}">➕ Nuevo tipo</a>
+    </p>
+
+    <!-- AHORA TODOS LOS CAMPOS RESTANTES SE RENDERIZAN IGUAL -->
+    <p>
+        {{ form.anio_publicacion.label }}: {{ form.anio_publicacion }}
+    </p>
+
+    <p>
+        {{ form.estado.label }}: {{ form.estado }}
+    </p>
+
+    <p>
+        {{ form.ejemplares_disponibles.label }}: {{ form.ejemplares_disponibles }}
+    </p>
+
+    <p>
+        {{ form.url_digital.label }}: {{ form.url_digital }}
+    </p>
+
+    <p>
+        {{ form.imagen.label }}: {{ form.imagen }}
+    </p>
+
+    <button type="submit">Guardar</button>
+</form>
+
+
+<a href="{% url 'listar_libros' %}">Volver a la lista de libros</a>
+
+</body>
+</html>
+

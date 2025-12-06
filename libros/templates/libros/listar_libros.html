@@ -1,0 +1,48 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Libros</title>
+    <link rel="stylesheet" href="{% static 'css/estilo.css' %}">
+</head>
+<body>
+<h2>Libros Disponibles</h2>
+
+{% if request.user.perfilusuario.rol.nombre_rol == 'Bibliotecario' %}
+    <a href="{% url 'agregar_libro' %}" style="margin-bottom: 20px; display: inline-block;">
+        ➕ Agregar Nuevo Libro
+    </a>
+{% endif %}
+
+<ul style="list-style: none; padding: 0;">
+    {% for libro in libros %}
+    <li style="display: flex; align-items: center; margin-bottom: 20px;">
+
+        <!-- Imagen del libro -->
+        {% if libro.imagen %}
+            <img src="{{ libro.imagen.url }}" alt="{{ libro.titulo }}"
+                 style="width: 90px; height: auto; margin-right: 15px; border-radius: 4px;">
+        {% else %}
+            <!-- Imagen por defecto si no hay portada -->
+            <img src="{% static 'img/no-image.png' %}"
+                 alt="Sin imagen"
+                 style="width: 90px; height: auto; margin-right: 15px; border-radius: 4px;">
+        {% endif %}
+
+        <!-- Información del libro -->
+        <div>
+            <strong>{{ libro.titulo }}</strong><br>
+            Autor: {{ libro.autor.nombre }}<br>
+            Categoría: {{ libro.categoria.nombre }}<br>
+            Tipo: {{ libro.tipo.nombre_tipo }}
+        </div>
+
+    </li>
+    {% endfor %}
+</ul>
+
+<a href="{% url 'inicio_lector' %}">Volver al inicio</a>
+
+</body>
+</html>

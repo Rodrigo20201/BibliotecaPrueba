@@ -1,0 +1,14 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard Administrador</title>
+    <link rel="stylesheet" href="{% static 'css/estilo.css' %}">
+</head>
+<body>
+<h2>Bienvenido, Administrador {{ request.user.username }}</h2>
+<p>Esta es la página principal de administración del sistema.</p>
+<a href="{% url 'logout' %}">Cerrar sesión</a>
+</body>
+</html>

@@ -1,0 +1,22 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Biblioteca - Inicio</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/estilo.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>Bienvenido a la Biblioteca FIIS</h1>
+
+        {% if user.is_authenticated %}
+            <p>Hola, {{ user.username }}! <a href="{% url 'logout' %}">Cerrar sesión</a></p>
+        {% else %}
+            <p><a href="{% url 'login' %}">Iniciar sesión</a> o <a href="{% url 'registro' %}">Registrarse</a></p>
+        {% endif %}
+
+        <p>Explora nuestra colección de libros y recursos digitales.</p>
+    </div>
+</body>
+</html>
