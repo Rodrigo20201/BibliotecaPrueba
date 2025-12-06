@@ -1,0 +1,57 @@
+-----------------Instrucciones-----------------
+Pasos para poder iniciar la aplicación:
+
+1. Descargar el zip 'Biblioteca'
+
+2. Descomprimir el zip, el cual generará una carpeta llamada 'Biblioteca'
+
+3. Dentro de la carpeta raíz del proyecto, es decir, la que se generó en el paso 2, creamos un 
+entorno virtual con el código:
+python -m venv venv
+
+4. Teniendo un entorno virtual ubicado en la carpeta raíz 'Biblioteca', procedemos a activar dicho entorno virtual en la terminal con el código: 
+
+.\venv\Scripts\Activate.ps1
+
+4.1. En caso de que aparezca el aviso 'la ejecución de scripts está    
+deshabilitada en este sistema', colocar el código:
+
+Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned
+
+Y luego ejecutar el código:
+.\venv\Scripts\Activate.ps1
+
+
+5. Procedemos a descargar las siguientes librerías con el entorno virtual activado:
+
+pip install django 
+
+pip install pillow
+
+6. Estando en la carpeta Biblioteca, procedemos a ejecutar en la terminal el siguiente código:
+
+python manage.py runserver
+
+7. Una vez ejecutado, podremos acceder a la página de inicio en el siguiente link:
+
+http://127.0.0.1:8000/
+
+8. La página login se puede ingresar tanto en la página de inicio con la opción de 'Iniciar sesión' o ingresando al siguiente link:
+
+http://127.0.0.1:8000/usuarios/login/
+
+
+
+-----------------Usuarios-----------------
+• Usuario normal (lector):
+
+Usuario: Lector1
+Contraseña: xBrayanR123
+
+• Usuario tipo bibliotecario:
+
+Usuario: bibliotecario1
+Contraseña: biblio123
+
+
+
